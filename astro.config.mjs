@@ -9,6 +9,6 @@ export default defineConfig({
   integrations: [
     sentry(),
     spotlightjs(), partytown({
-    config:{debug:false}
+    config:{debug:true}
   })]
 });
