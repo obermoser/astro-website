@@ -20,6 +20,10 @@ const skills = ["HTML", "CSS", "Typescript"];
             h1{
                 color:purple;
                 font-size:4rem;
+            },
+            .skill{
+                color:rgb(130, 228, 130);
+                font-weight: bold;
             }
         </style>
 
@@ -48,7 +52,7 @@ const skills = ["HTML", "CSS", "Typescript"];
         <p>
             Meine Kenntnisse umfassen:
             <ul>
-                {skills.map((skill)=><li>{skill}</li>)}
+                {skills.map((skill)=><li class="skill">{skill}</li>)}
             </ul>
         </p>
     </body>
