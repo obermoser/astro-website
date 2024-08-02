@@ -7,6 +7,10 @@ const identity = {
     hobbies: ["programmierung", "design", "lesen", "kochen"],
 };
 const skills = ["HTML", "CSS", "Typescript"];
+const skillColor = "navy";
+const fontWeight = "bold";
+const textTransform="uppercase";
+import '../styles/global.css';
 ---
 
 <html lang="en">
@@ -16,14 +20,15 @@ const skills = ["HTML", "CSS", "Typescript"];
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
-        <style>
+        <style define:vars={{skillColor, fontWeight, textTransform}}>
             h1{
                 color:purple;
                 font-size:4rem;
-            },
+            }
             .skill{
-                color:rgb(130, 228, 130);
-                font-weight: bold;
+                color:var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform:var(--textTransform)
             }
         </style>
 
