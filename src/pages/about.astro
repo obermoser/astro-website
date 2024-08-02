@@ -9,8 +9,12 @@ const identity = {
 const skills = ["HTML", "CSS", "Typescript"];
 const skillColor = "navy";
 const fontWeight = "bold";
-const textTransform="uppercase";
-import '../styles/global.css';
+const textTransform = "uppercase";
+
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -20,24 +24,20 @@ import '../styles/global.css';
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
-        <style define:vars={{skillColor, fontWeight, textTransform}}>
-            h1{
-                color:purple;
-                font-size:4rem;
+        <style define:vars={{ skillColor, fontWeight, textTransform }}>
+            h1 {
+                color: purple;
+                font-size: 4rem;
             }
-            .skill{
-                color:var(--skillColor);
+            .skill {
+                color: var(--skillColor);
                 font-weight: var(--fontWeight);
-                text-transform:var(--textTransform)
+                text-transform: var(--textTransform);
             }
         </style>
-
     </head>
     <body>
-        <a href="/">Start</a>
-        <a href="/news">News</a>
-        <a href="/about">Über uns</a>
-
+        <Navigation />
         <h1>{pageTitle}</h1>
         <p>
             <ul>
@@ -57,8 +57,9 @@ import '../styles/global.css';
         <p>
             Meine Kenntnisse umfassen:
             <ul>
-                {skills.map((skill)=><li class="skill">{skill}</li>)}
+                {skills.map((skill) => <li class="skill">{skill}</li>)}
             </ul>
         </p>
+        <Footer/>
     </body>
 </html>
