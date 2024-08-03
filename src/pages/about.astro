@@ -1,5 +1,4 @@
 ---
-const pageTitle = "Über uns";
 const identity = {
     first: "Bernhard",
     second: "Obermoser",
@@ -10,53 +9,34 @@ const skills = ["HTML", "CSS", "Typescript"];
 const skillColor = "navy";
 const fontWeight = "bold";
 const textTransform = "uppercase";
-
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 import "../styles/global.css";
-import Header from "../components/Header.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-        <style define:vars={{ skillColor, fontWeight, textTransform }}>
-            .skill {
-                color: var(--skillColor);
-                font-weight: var(--fontWeight);
-                text-transform: var(--textTransform);
-            }
-        </style>
-    </head>
-    <body>
-        <Header />
-        <h1>{pageTitle}</h1>
-        <p>
-            <ul>
-                <li>Mein Name ist {identity.first}.</li>
-                <li>
-                    Ich lebe in {identity.country} und zwei meiner Hobbies sind:
-                </li>
-                {
-                    identity.hobbies.length >= 3 && (
-                        <li>
-                            {identity.hobbies[0]} und {identity.hobbies[2]}
-                        </li>
-                    )
-                }
-            </ul>
-        </p>
-        <p>
-            Meine Kenntnisse umfassen:
-            <ul>
-                {skills.map((skill) => <li class="skill">{skill}</li>)}
-            </ul>
-        </p>
-        <Footer />
-    </body>
-</html>
+<style define:vars={{ skillColor, fontWeight, textTransform }}>
+    .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textTransform);
+    }
+</style>
+<BaseLayout pageTitle="Über uns">
+    <li>Mein Name ist {identity.first}.</li>
+    <li>
+        Ich lebe in {identity.country} und zwei meiner Hobbies sind:
+    </li>
+    {
+        identity.hobbies.length >= 3 && (
+            <li>
+                {identity.hobbies[0]} und {identity.hobbies[2]}
+            </li>
+        )
+    }
+    <p>
+        Meine Kenntnisse umfassen:
+        <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
+    </p>
+</BaseLayout>
