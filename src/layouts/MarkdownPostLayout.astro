@@ -6,7 +6,7 @@ import BaseLayout from "./BaseLayout.astro";
 
 <BaseLayout pageTitle={frontmatter.title}>
     <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
-    <p>Verfasst von {frontmatter.author}</p>
+    <p>Verfasst von <a href="/about/">{frontmatter.author}</a></p>
     <Image
         loading="eager"
         src={frontmatter.image.url}
