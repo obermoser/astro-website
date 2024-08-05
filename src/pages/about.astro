@@ -9,10 +9,8 @@ const skills = ["HTML", "CSS", "Typescript"];
 const skillColor = "navy";
 const fontWeight = "bold";
 const textTransform = "uppercase";
-import { Image } from "astro:assets";
+import {Picture } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-import "../styles/global.css";
 import locPic from '../assets/image/localpic.jpg';
 
 ---
@@ -42,5 +40,5 @@ import locPic from '../assets/image/localpic.jpg';
             {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
     </p>
-    <Image alt="im local" width="620" src={locPic}></Image>
+    <Picture loading="eager" formats={["avif", "webp", "png"]} alt="im local" width="310" src={locPic}></Picture>
 </BaseLayout>
