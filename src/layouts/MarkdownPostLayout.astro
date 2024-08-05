@@ -8,7 +8,7 @@ import BaseLayout from "./BaseLayout.astro";
     <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
     <p>Verfasst von {frontmatter.author}</p>
     <Image
-        loading="lazy"
+        loading="eager"
         src={frontmatter.image.url}
         width="300"
         height="150"
